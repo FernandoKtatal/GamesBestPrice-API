@@ -22,6 +22,7 @@ class GameViewSet(viewsets.ModelViewSet):
     lookup_field = 'id'
     serializer_class = GameSerializer
 
+    # Filtering by id,name,price and link
     def get_queryset(self):
         queryset = Game.objects.all()
         idGame = self.request.query_params.get('id',None)
@@ -39,6 +40,7 @@ class GameViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(link = linkGame)
         return queryset
 
+    # Implemente the DELETE
     def delete(self,request):
         self.get_queryset().delete()    
         return Response()
