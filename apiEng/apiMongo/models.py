@@ -5,6 +5,7 @@ class Game(Document):
     name = fields.StringField(required=True)
     price = fields.StringField(required=True)
     link = fields.StringField(required=True)
+    img = fields.StringField(required=True)
 
 
 
