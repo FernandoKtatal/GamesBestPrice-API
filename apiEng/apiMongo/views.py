@@ -7,6 +7,9 @@ from .models import Game
 from rest_framework import generics, status
 from django_filters.rest_framework import FilterSet, filters
 from django.http import Http404
+import mongoengine
+from django_filters import rest_framework
+from django.db.models import Q
 
 # controlres = espera a acao pra agir
 # Create your views here.
@@ -33,14 +36,14 @@ class GameViewSet(viewsets.ModelViewSet):
         if idGame is not None:
             queryset = queryset.filter(id = idGame)
         if nameGame is not None:
-            queryset = queryset.filter(name = nameGame)
+            queryset = queryset.filter(name__icontains = nameGame)
         if priceGame is not None:
-            queryset = queryset.filter(price = priceGame)
+            queryset = queryset.filter(price__lte = priceGame)
         if linkGame is not None:
             queryset = queryset.filter(link = linkGame)
         return queryset
 
-    # Implemente the DELETE
+    # Implements the DELETE
     def delete(self,request):
         self.get_queryset().delete()    
         return Response()
