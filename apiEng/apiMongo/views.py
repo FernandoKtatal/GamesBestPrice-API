@@ -9,7 +9,6 @@ from django_filters.rest_framework import FilterSet, filters
 from django.http import Http404
 import mongoengine
 from django_filters import rest_framework
-from django.db.models import Q
 
 # controlres = espera a acao pra agir
 # Create your views here.
