@@ -2,15 +2,19 @@ from django.db import models
 from mongoengine import Document,fields
 
 class Game(Document):
-    name = fields.StringField(required=True)
+    official = fields.StringField(required=False)
+    name = fields.StringField(required=False)
     nameSteam = fields.StringField(required=False)
-    price = fields.FloatField(required=True)
+    nameG2a = fields.StringField(required=False)
+    price = fields.FloatField(required=False)
     priceSteam = fields.FloatField(required=False)
-    link = fields.StringField(required=True)
+    priceG2a = fields.FloatField(required=False)
+    link = fields.StringField(required=False)
     linkSteam = fields.StringField(required=False)
-    img = fields.StringField(required=True)
+    linkG2a = fields.StringField(required=False)
+    img = fields.StringField(required=False)
     imgSteam = fields.StringField(required=False)
-
+    imgG2a = fields.StringField(required=False)
 
 
 # Create your models here.

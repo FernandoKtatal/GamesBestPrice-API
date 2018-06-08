@@ -31,7 +31,8 @@ class GameViewSet(viewsets.ModelViewSet):
         nameGame = self.request.query_params.get('name',None)
         priceGame = self.request.query_params.get('price',None)
         linkGame = self.request.query_params.get('link',None)
-        
+        officialName = self.request.query_params.get('official',None)
+
         if idGame is not None:
             queryset = queryset.filter(id = idGame)
         if nameGame is not None:
@@ -40,6 +41,8 @@ class GameViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(price__lte = priceGame)
         if linkGame is not None:
             queryset = queryset.filter(link = linkGame)
+        if officialName is not None:
+            queryset = queryset.filter(official = officialName)
         return queryset
 
     # Implements the DELETE
