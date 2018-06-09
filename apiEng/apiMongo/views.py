@@ -39,8 +39,6 @@ class GameViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(name__icontains = nameGame)
         if priceGame is not None:
             queryset = queryset.filter(price__lte = priceGame)
-        if linkGame is not None:
-            queryset = queryset.filter(link = linkGame)
         if officialName is not None:
             queryset = queryset.filter(official = officialName)
         return queryset
