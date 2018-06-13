@@ -4,6 +4,7 @@ from mongoengine import Document,fields
 class Game(Document):
     official = fields.StringField(required=False)
     name = fields.StringField(required=False)
+    price = fields.FloatField(required=False)
 
     priceNu = fields.FloatField(required=False)
     priceSteam = fields.FloatField(required=False)
